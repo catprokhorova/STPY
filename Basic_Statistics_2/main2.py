@@ -63,7 +63,7 @@ def monte_carlo():
     555: 50,
     333: 15,
     111: 10
-}
+    }
     trials = 1000000
     fail = 0       
     balance = 0
