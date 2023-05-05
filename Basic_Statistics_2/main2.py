@@ -80,4 +80,6 @@ def monte_carlo(trials):
     return res
 
 if __name__ == '__main__':
-    print(monte_carlo(np.random.randint(0, 1000, 10000000)))
+    np.random.seed(42)
+    trials = np.random.randint(0, 1000, 10000000)
+    print(monte_carlo(trials))
