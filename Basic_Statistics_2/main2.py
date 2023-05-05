@@ -76,3 +76,6 @@ def monte_carlo(trials):
 
     res = round(balance / len(trials), 5)
     return res
+
+if __name__ == '__main__':
+    print(monte_carlo(np.random.randint(0, 1000, 10000000)))
