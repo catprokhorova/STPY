@@ -21,7 +21,9 @@
 
 import numpy as np
 
-def monte_carlo():
+# trials - 1 млн. целых чисел от 0 до 999
+# генерируется отдельно в тестовом файле
+def monte_carlo(trials):
     # словарь, содержащий выигрышные комбинации и сумму выигрыша
     # случаи с * следует обработать в цикле с помощью
     # операции взятия остатка от деления (%)
@@ -32,20 +34,11 @@ def monte_carlo():
         333: 15,
         111: 10
     }
-    # чем больше попыток, тем точнее результат
-    trials = 1000000
-    # количество неудачных попыток
-    fail = 0 
     # сумма выигрыша      
     balance = 0
 
-    for i in range(...):
-        # случайное целое число
-        random_score = ...
-        # если это выигрышная комбинация,
-        # добавляем выигрыш к balance
-        if ...:
-            ...
+    for i in ...:
+        ...
 
     res = ...
     return res
@@ -55,7 +48,11 @@ def monte_carlo():
 
 import numpy as np
 
-def monte_carlo():
+np.random.seed(42)
+trials = np.random.randint(0, 1000, 10000000)
+# trials - 1 млн. целых чисел от 0 до 999
+# генерируется отдельно в тестовом файле
+def monte_carlo(trials):
 
     score = {
         999: 100,
@@ -64,28 +61,20 @@ def monte_carlo():
         333: 15,
         111: 10
     }
-    trials = 1000000
-    fail = 0       
     balance = 0
-
-    for i in range(trials + 1):
-        random_score = np.random.randint(0, 1000)
-        value = score.get(random_score)
+    
+    for i in trials:
+        value = score.get(i)
         if value:
             balance += value
-        elif random_score % 100 == 77:
+        elif i % 100 == 77:
             balance += 5
-        elif random_score % 10 == 7:
+        elif i % 10 == 7:
             balance += 3
-        elif random_score % 100 == 0:
+        elif i % 100 == 0:
             balance += 2
-        elif random_score % 10 == 0:
+        elif i % 10 == 0:
             balance += 1
-        else:
-            fail += 1
 
-    res = balance / trials
+    res = round(balance / len(trials), 5)
     return res
-
-if __name__ == '__main__':
-    print(monte_carlo())
