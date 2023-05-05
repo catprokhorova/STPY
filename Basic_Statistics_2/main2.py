@@ -42,6 +42,8 @@ def monte_carlo(trials):
 
     res = ...
     return res
+
+print(monte_carlo(np.random.randint(0, 1000, 10000000)))
 '''
 
 # Код эксперта:
