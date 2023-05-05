@@ -48,8 +48,6 @@ def monte_carlo(trials):
 
 import numpy as np
 
-np.random.seed(42)
-trials = np.random.randint(0, 1000, 10000000)
 # trials - 1 млн. целых чисел от 0 до 999
 # генерируется отдельно в тестовом файле
 def monte_carlo(trials):
