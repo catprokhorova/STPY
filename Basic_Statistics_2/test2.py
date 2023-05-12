@@ -34,10 +34,21 @@ def expert(trials):
     return res
 
 def test_1():
-    assert monte_carlo(seed(42)) == expert(seed(42))
+    assert monte_carlo([999]) == 100, 'Условие для 999 реализовано некорректно'
+    assert monte_carlo([777]) == 200, 'Условие  для 777 реализовано некорректно'
+    assert monte_carlo([555]) == 50, 'Условие для 555 реализовано некорректно'
+    assert monte_carlo([333]) == 15, 'Условие для 333 реализовано некорректно'
+    assert monte_carlo([111]) == 10, 'Условие для 111 реализовано некорректно'
+    assert monte_carlo([677]) == 5, 'Условие для *77 реализовано некорректно'
+    assert monte_carlo([667]) == 3, 'Условие для **7 реализовано некорректно'
+    assert monte_carlo([100]) == 2, 'Условие для *00 реализовано некорректно'
+    assert monte_carlo([10]) == 1, 'Условие для **0 реализовано некорректно'
 
 def test_2():
-    assert monte_carlo(seed(13)) == expert(seed(13))
+    assert monte_carlo(seed(42)) == expert(seed(42))
 
 def test_3():
+    assert monte_carlo(seed(13)) == expert(seed(13))
+
+def test_4():
     assert monte_carlo(seed(7)) == expert(seed(7))

@@ -21,7 +21,7 @@
 
 import numpy as np
 
-# trials - 1 млн. целых чисел от 0 до 999
+# trials - список из 1 млн. целых чисел от 0 до 999
 # генерируется отдельно в тестовом файле
 def monte_carlo(trials):
     # словарь, содержащий выигрышные комбинации и сумму выигрыша
@@ -43,14 +43,17 @@ def monte_carlo(trials):
     res = ...
     return res
 
-print(monte_carlo(np.random.randint(0, 1000, 10000000)))
+if __name__ == '__main__':
+    np.random.seed(42)
+    trials = np.random.randint(0, 1000, 10000000)
+    print(monte_carlo(trials))
 '''
 
 # Код эксперта:
 
 import numpy as np
 
-# trials - 1 млн. целых чисел от 0 до 999
+# trials - список из 1 млн. целых чисел от 0 до 999
 # генерируется отдельно в тестовом файле
 def monte_carlo(trials):
 
@@ -78,8 +81,3 @@ def monte_carlo(trials):
 
     res = round(balance / len(trials), 5)
     return res
-
-if __name__ == '__main__':
-    np.random.seed(42)
-    trials = np.random.randint(0, 1000, 10000000)
-    print(monte_carlo(trials))
