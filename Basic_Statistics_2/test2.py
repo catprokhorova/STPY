@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from main2 import monte_carlo
+from Visualization.main2 import monte_carlo
 
 def seed(num):
     np.random.seed(num)

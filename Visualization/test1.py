@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from main import drawing
+from main1 import drawing
 
 df = pd.read_csv('Visualization/USD_EUR.csv')
 def expert(df):

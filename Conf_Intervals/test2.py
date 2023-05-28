@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 from scipy import stats
-from main2 import interval
+from Visualization.main2 import interval
 
 
 def seed():
