@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 from main import drawing
 
 df = pd.read_csv('Visualization/USD_EUR.csv')
@@ -17,21 +18,30 @@ def expert(df):
 
 def get_attr(gcf):
     res = {}
+    res['line1'] = gcf.get_axes()[0].__dict__['_children'][0]
+    res['line2'] = gcf.get_axes()[0].__dict__['_children'][1]
     res['title'] = gcf.get_axes()[0].title.__dict__['_text']
     res['xlabel'] = gcf.get_axes()[0].xaxis.__dict__['label'].__dict__['_text']
     res['ylabel'] = gcf.get_axes()[0].yaxis.__dict__['label'].__dict__['_text']
     res['xgrid'] = gcf.get_axes()[0].xaxis.__dict__['_major_tick_kw']['gridOn']
     res['ygrid'] = gcf.get_axes()[0].yaxis.__dict__['_major_tick_kw']['gridOn']
-    res['line_col_1'] = gcf.get_axes()[0].__dict__['_children'][0].__dict__['_color']
-    res['line_col_2'] = gcf.get_axes()[0].__dict__['_children'][1].__dict__['_color']
-    res['line_lbl_1'] = gcf.get_axes()[0].__dict__['_children'][0].__dict__['_label']
-    res['line_lbl_2'] = gcf.get_axes()[0].__dict__['_children'][1].__dict__['_label']
+    try:
+        res['line_col_1'] = gcf.get_axes()[0].__dict__['_children'][0].__dict__['_color']
+        res['line_col_2'] = gcf.get_axes()[0].__dict__['_children'][1].__dict__['_color']
+        res['line_lbl_1'] = gcf.get_axes()[0].__dict__['_children'][0].__dict__['_label']
+        res['line_lbl_2'] = gcf.get_axes()[0].__dict__['_children'][1].__dict__['_label']
+    except KeyError:
+        pass
     res['legend'] = (gcf.get_axes()[0].__dict__['legend_'].__dict__['_legend_title_box']
                     .__dict__['_text'].__dict__['_text'])
     return res
 
 st = get_attr(drawing(df))
 ex = get_attr(expert(df))
+
+def test_type():
+    assert isinstance(st['line1'], Line2D), 'График должен быть линией'
+    assert isinstance(st['line2'], Line2D), 'График должен быть линией'
 
 def test_title():
     assert st['title'] == ex['title'], 'Задайте заголовок графика'
