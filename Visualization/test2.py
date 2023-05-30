@@ -29,7 +29,7 @@ def get_attr(gcf):
     except KeyError:
         pass
     res['legend'] = (gcf.get_axes()[0].__dict__['legend_'].__dict__['_legend_title_box']
-                    .__dict__['_text'].__dict__['_text']) #works
+                    .__dict__['_text'].__dict__['_text'])
     return res
 
 st = get_attr(drawing(df))
