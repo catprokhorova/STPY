@@ -64,7 +64,7 @@ if 0 < abs(p_coef['Temperature'].to_list()[0]) <= 0.3:
     print('Очень слабая зависимость')
 elif 0.3 < abs(p_coef['Temperature'].to_list()[0]) <= 0.5:
     print('Слабая зависимость')
-elif 0.5 < abs(p_coef['Temperature'].to_list()[0]) < 0.7:
+elif 0.5 < abs(p_coef['Temperature'].to_list()[0]) <= 0.7:
     print('Средняя зависимость')
 elif 0.7 < abs(p_coef['Temperature'].to_list()[0]) <= 0.9:
     print('Высокая зависимость')
