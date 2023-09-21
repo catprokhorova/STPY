@@ -15,7 +15,7 @@ params = seed()
 
 
 def expert(delta, sigsqr, conf):
-    return round(np.ceil(sigsqr*(stats.norm.ppf((1 + conf)/2)**2)/(delta**2)))
+    return np.ceil(sigsqr*(stats.norm.ppf((1 + conf)/2)**2)/(delta**2))
 
 
 def test_1():

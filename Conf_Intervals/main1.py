@@ -6,8 +6,7 @@
 - погрешность (Δ);
 - дисперсия (σ2);
 - уровень доверия (1-α).
-Ответ округлите до целого.
-
+Распределение считаем нормальным.
 ВНИМАНИЕ! НЕ УДАЛЯЙТЕ КОД НИЖЕ, А ДОПОЛНИТЕ ЕГО. ФУНКЦИЯ НУЖНА ДЛЯ ПРОВЕРКИ ВАШЕГО РЕШЕНИЯ.
 
 Код для студента:
@@ -26,7 +25,7 @@ import numpy as np
 from scipy import stats
 
 def sample(delta, sigsqr, conf):
-    return round(np.ceil(sigsqr*(stats.norm.ppf((1 + conf)/2)**2)/(delta**2)))
+    return np.ceil(sigsqr*(stats.norm.ppf((1 + conf)/2)**2)/(delta**2))
 
 if __name__ == '__main__':
   print(sample(2, 144, 0.95))

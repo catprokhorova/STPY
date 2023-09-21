@@ -17,7 +17,7 @@ params = seed()
 
 def expert(n, mean, sig, conf):
   h = sig * stats.norm.ppf((1 + conf)/2)/np.sqrt(n)
-  return round((mean+h)-(mean-h))
+  return (mean+h)-(mean-h)
 
 
 def test_1():
